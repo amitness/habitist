@@ -50,7 +50,7 @@ def main():
                 update_streak(task, streak)
             elif is_due(task['due_date_utc']):
                 update_streak(task, 0)
-                task.update(date_string='ev day starting tod')
+                task.update(date_string='ev weekday starting tod')
     api.commit()
 
 if __name__ == '__main__':
