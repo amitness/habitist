@@ -32,8 +32,15 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
 4. We want to trigger this once the day ends. So, you will need to find the time in UTC when it's 12 AM in your country.
 > For example, Nepal is 5:45 hrs ahead of UTC. For 12:00 AM in Nepal, UTC time will be 6:15 pm i.e. 18:15.
 
-You can use [https://www.thetimezoneconverter.com](https://www.thetimezoneconverter.com/) to do it. As seen in screenshot, you just need to type 00:00 in the local time and select the `24` hour button. Note the time you get in the UTC column.
+You can use [https://www.thetimezoneconverter.com](https://www.thetimezoneconverter.com/) to do it. As seen in screenshot, you just need to type 00:00 in the local time and select the `24` hour button. Note the time you get in the UTC column (i.e. 18:15 in below example)
+<p align="center">
+    <img src="https://i.imgur.com/DW8b3Vn.png"/>
+</p>
 
+5. Now, you need to go to `./github/workflows/pythonapp.yml` file in the repo and change the `cron` key under `schedule` to the time you go in previous step. Just modify the first 2 numbers. The first number would be minutes and the second number would be hours. If you got `18:15` as the time in previous step, it would be `15 18 * * *`
+<p align="center">
+    <img src="https://i.imgur.com/Xyxl2Dk.png"/>
+</p>
 
 ## License
 
