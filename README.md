@@ -37,7 +37,7 @@ You can use [https://www.thetimezoneconverter.com](https://www.thetimezoneconver
     <img src="https://i.imgur.com/DW8b3Vn.png"/>
 </p>
 
-5. Now, you need to go to `./github/workflows/pythonapp.yml` file in the repo and change the `cron` key under `schedule` to the time you go in previous step. Just modify the first 2 numbers. The first number would be minutes and the second number would be hours. If you got `18:15` as the time in previous step, it would be `15 18 * * *`
+5. Now, you need to go to `./github/workflows/pythonapp.yml` file in the repo and edit the `cron` key under `schedule` to the time you got in previous step. Just modify the first 2 numbers. The first number would be minutes and the second number would be hours. If you got `18:15` as the time in previous step, it would be `15 18 * * *`
 <p align="center">
     <img src="https://i.imgur.com/Xyxl2Dk.png"/>
 </p>
