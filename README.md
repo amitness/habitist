@@ -29,8 +29,11 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
 
 ![Setting up todoist key](https://i.imgur.com/sdCRpBI.png)
 
-4. We want to trigger this once after the day ends. So, find the time in UTC when it's 12AM in your country.
-> For example, Nepal is 5:45 hrs ahead of UTC. For 12:00AM in UTC, we have 5:45AM here. So, we need to trigger this API anytime after 5:45AM. Do the same calculation for your timezone and set that time in step 6.
+4. We want to trigger this once the day ends. So, you will need to find the time in UTC when it's 12 AM in your country.
+> For example, Nepal is 5:45 hrs ahead of UTC. For 12:00 AM in Nepal, UTC time will be 6:15 pm i.e. 18:15.
+
+You can use [https://www.thetimezoneconverter.com](https://www.thetimezoneconverter.com/) to do it. As seen in screenshot, you just need to type 00:00 in the local time and select the `24` hour button. Note the time you get in the UTC column.
+
 
 ## License
 
