@@ -21,7 +21,7 @@ updates made by me
 
 3. When you complete the task, the [day 0/21] will become [day 1/21]
 
-4. If you fail to complete the task and it becomes overdue, the script will schedule it to today and reset [day X] to [day 0].
+4. If you fail to complete the task and it becomes overdue, the script will schedule it to today and reset [day X/G] to [day 0/G].
 
 5. If you complete habits everyday for set goal the script will delete the task. (Implying you have devloped the habit).
 
