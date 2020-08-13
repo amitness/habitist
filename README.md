@@ -6,17 +6,26 @@ It integrates Seinfield's "[Don't Break the Chain](https://lifehacker.com/281626
     <img src="https://i.imgur.com/PVp2TBs.png"/>
 </p>
 
+## Updates
+This githuh repo is forked form: https://github.com/amitness
+updates made by me
+1) Added goal
+2) Feature to automatically delete the task when goal is completed.
+
+
 ## Usage
 
 ![Habitist Screenshot](https://i.imgur.com/q4h2QGv.png)
 
 1. You add habits you want to form as task on todoist with schedule `every day`
 
-2. Add `[day 0]` to the task
+2. Add `[day 0/21]` to the task, set goal in days (eg. in this case 21)
 
-3. When you complete the task, the [day 0] will become [day 1]
+3. When you complete the task, the [day 0/21] will become [day 1/21]
 
 4. If you fail to complete the task and it becomes overdue, the script will schedule it to today and reset [day X] to [day 0].
+
+5. If you complete habits everyday for set goal the script will delete the task. (Implying you have devloped the habit).
 
 ## Setup Instructions
 1. You will need a GitHub account to setup this for your use. Please signup from [here](https://github.com/join) if you don't have an account yet. 
