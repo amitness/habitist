@@ -23,7 +23,8 @@ class Task(object):
         self.item = item
 
     def get_habit(self):
-        return re.search(r'\[day\s(\d+)\]', self.item['content'])
+        #Update: [day 'streak'/'habit_goal(in days)']
+        return re.search(r'\[day\s(\d+)\/(\d+)]', self.item['content'])
 
     def is_habit(self):
         """
@@ -62,14 +63,26 @@ class Task(object):
         habit = self.get_habit()
         return int(habit.group(1))
 
-    def set_streak(self, streak):
+    @property
+    def current_goal(self):
+        """
+        Parse and get current goal to develop a habit in days from the pattern.
+
+        Pattern: [day X/G]
+        :return: Goal streak
+        """
+        habit = self.get_habit()
+        return int(habit.group(2))
+
+    def set_streak(self, streak, goal):
         """
         Set streak for a task.
         :param streak: Number of days
+        :param goal: Habit goal in days
         :return: None
         """
-        days = '[day {}]'.format(streak)
-        text = re.sub(r'\[day\s(\d+)\]', days, self.item['content'])
+        days = '[day {}/{}]'.format(streak,goal)
+        text = re.sub(r'\[day\s(\d+)\/(\d+)]', days, self.item['content'])
         self.item.update(content=text)
 
     def increase(self, n=1):
@@ -78,7 +91,7 @@ class Task(object):
         Default: 1 day
         :param n: Number of days
         """
-        self.set_streak(self.current_streak + n)
+        self.set_streak(self.current_streak + n,self.current_goal)
 
     def decrease(self, today):
         """
@@ -86,17 +99,30 @@ class Task(object):
         Doesn't go to negative.
         """
         streak = max(0, self.current_streak - 1)
-        self.set_streak(streak)
+        self.set_streak(streak,self.current_goal)
         self.item.update(due={'string': 'ev day starting {}'.format(today)})
 
     def reset_to_zero(self, today):
         """
         Set streak to zero.
         """
-        self.set_streak(0)
+        self.set_streak(0,self.current_goal)
         self.item.update(due={'string': 'ev day starting {}'.format(today)})
 
+    def habbit_complete(self):
+        """
+        returns True is streak == goal.
+        """
+        if self.current_streak >= self.current_goal:
+            return True
+        return False
 
+    def delete_task(self):
+        """
+        Delete task if goal is completed
+        """
+        self.item.delete()
+        
 class Todoist(object):
     def __init__(self):
         self.api = TodoistAPI(get_token())
@@ -118,6 +144,8 @@ class Todoist(object):
                     task.reset_to_zero(self.today)
                 else:
                     task.increase()
+                    if task.habbit_complete():
+                        task.delete_task()
         self.api.commit()
 
 
