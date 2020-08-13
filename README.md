@@ -15,8 +15,6 @@ updates made by me
 
 ## Usage
 
-![Habitist Screenshot](https://i.imgur.com/q4h2QGv.png)
-
 1. You add habits you want to form as task on todoist with schedule `every day`
 
 2. Add `[day 0/21]` to the task, set goal in days (eg. in this case 21)
