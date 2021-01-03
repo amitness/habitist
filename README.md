@@ -21,7 +21,7 @@ It integrates "Don't Break the Chain" method for habit building into [todoist](h
 ## Setup Instructions
 1. You will need a GitHub account to setup this for your use. Please signup from [here](https://github.com/join) if you don't have an account yet. 
 
-2. Once logged in to GitHub, [fork](https://github.com/amitness/shuffle/fork) this repo to your GitHub account.  
+2. Once logged in to GitHub, [fork](https://github.com/amitness/habitist/fork) this repo to your GitHub account.  
 
 ![Forking a repo](https://i.imgur.com/2BDTiKR.png)
 
